@@ -1,0 +1,7 @@
+- name: install basic packages for debian family
+  become: true
+  apt:
+    name: '{{ apache_package name }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
