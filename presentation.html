@@ -32,16 +32,16 @@ class: center, middle
 --
     <li>Vagrant</li>
         <ul>
-            <li>présentation de  l'outil</li>
-            <li>création de notre terrain de jeu</li>
+            <li>Présentation de l'outil</li>
+            <li>Création de notre terrain de jeu</li>
         </ul>
         <br>
 --
     <li>Hosts, Groups et ligne de commande</li>
     <ul>
-        <li>Creation du fichier host</li>
-        <li>variabilisation des hosts et groups</li>
-        <li>premières action à la ligne de commande</li>
+        <li>Création du fichier host</li>
+        <li>Variabilisation des hosts et groups</li>
+        <li>Premières actions à la ligne de commande</li>
     </ul>
     <br>
 --
@@ -61,10 +61,7 @@ class: center, middle
 </ol>
 
 ---
-
-# Introduction
-
-# Ansible: un outil de provisionning
+# Ansible, un outil de provisionning
 
 * Agit sur des machines déjà existantes afin de les **configurer**
 
@@ -73,7 +70,49 @@ class: center, middle
 * Différent de Terraform -> _Orchestration Management_  
     (vont provisionner les serveurs eux-mêmes)
 
-* !! Ansible peut faire de l'Orchestration, mais ce n'est pas son rôle premier (otamment pour docker)
+* !! Ansible peut faire de l'Orchestration, mais ce n'est pas son rôle premier (Notamment pour Docker)
+
+* Est aujourd’hui sous la responsabilité de RedHat
+
+* Open Source : les sources sont disponibles sur GitHub.
+
+* Nom inspiré d'un outil de communication supraluminique dans le livre de SF Rocannon's World de Ursula K. Le Guin
+
+---
+### Introduction
+
+# Avantages
+
+* Idempotence de la plupart des modules sur la plupart des plateformes (Linux, Windows, Mac, BSD)
+
+* Ne nécessite qu'une connection ssh et Python sur la machine distante. Pas d'agent à installer partout.
+
+* Pas besoin d'expérience de développement (même si ça aide...)
+
+* Permet d'avoir très rapidement un aperçu de l'infrastructure via les playbooks
+
+* Possible d'écrire ses propres modules
+
+---
+# Comment ça marche ?
+
+* Génère un script python avec l'ensemble des commandes à effectuer
+
+* Se connecte aux machines via SSH et dépose ce script dans les fichiers temporaires
+
+* Exécute et monitore le déroulement du script
+
+
+---
+# Vagrant ?
+
+---
+# Le fichier host
+## Référencer les machines
+
+* Sert simplement à signaler à Ansible les machines sur lesquelles agir.
+* Existe deux formats: ini et yaml
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
