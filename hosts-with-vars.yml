@@ -2,14 +2,27 @@ all:
   hosts:
     localhost:
       ansible_connection: local
+    ubuntu:
+        ansible_host: 192.168.33.12
+    debian:
+      ansible_host: 192.168.33.11
+    centos:
+        ansible_host: 192.168.33.10
   children:
     webservers:
+      vars:
       hosts:
         ubuntu:
-          ansible_host: 192.168.33.12
         debian:
-          ansible_host: 192.168.33.11
     dbservers:
       hosts:
         centos:
-          ansible_host: 192.168.33.10
+    vagrant:
+      vars:
+        ansible_user: "vagrant"
+        ansible_ssh_private_key_file: "./.vagrant/machines/{{ inventory_hostname }}/virtualbox/private_key"
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+      hosts:
+        centos:
+        debian:
+        ubuntu:
