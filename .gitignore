@@ -1,3 +1,9 @@
+# MS Word tmp file
 ~$*
+
+# OO tmp file
+.~*
+
+# vagrant tmp files
 ubuntu-xenial-16.04-cloudimg-console.log
 .vagrant
