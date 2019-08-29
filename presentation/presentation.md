@@ -1,49 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Formation Ansible</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
-
 class: center, middle
 
 # Ansible
 
 ---
-
 # Au menu
 
 --
-
 <ol>
     <li>Introduction</li>
     <ul>
       <li>Un outil de provisionning</li>
       <li>Pourquoi Ansible ?</li>
       <li>Comment ça marche ?</li>
-  </ul>
+    </ul>
     <br>
-<!-- --
+<!---
+--
     <li>Vagrant</li>
     <ul>
         <li>Présentation de l'outil</li>
         <li>Création de notre terrain de jeu</li>
     </ul>
-    <br> -->
+    <br> 
+-->
 --
     <li>Hosts, Groups et ligne de commande</li>
     <ul>
@@ -113,13 +92,14 @@ class: center, middle
 
 * Idempotence de la plupart des modules sur la plupart des plateformes (Linux, Windows, Mac, BSD)
 
-* Ne nécessite qu'une connection ssh et Python sur la machine distante. Pas d'agent à installer partout. Limite les risques de sécurité.
+* Ne nécessite qu'une connexion ssh et Python sur la machine distante. Pas d'agent à installer partout. Limite les risques de sécurité.
 
 * Pas besoin d'expérience de développement (même si ça aide...)
 
 * Permet d'avoir très rapidement un aperçu de l'infrastructure via les playbooks
 
 * Possible d'écrire ses propres modules (dans la plupart des langages de scripting: bash, perl, ruby...)
+
 
 ---
 
@@ -132,10 +112,12 @@ class: center, middle
 * Exécute et monitore le déroulement du script
 
 
-<!-- ---
+<!-- 
+---
 # Vagrant ?
+-->
 
---- -->
+--- 
 
 # Hosts, Groups et ligne de commande
 
@@ -214,11 +196,3 @@ all:
     <br>
 
     ---
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
-</html>

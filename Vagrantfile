@@ -10,21 +10,21 @@ servers=[
     :hostname => "centos",
     :ip => "192.168.33.10",
     :box => "centos/7",
-    :ram => 1024,
+    :ram => 512,
     :cpu => 1
   },
   {
     :hostname => "debian",
     :ip => "192.168.33.11",
     :box => "debian/jessie64",
-    :ram => 1024,
+    :ram => 512,
     :cpu => 1
   },
   {
     :hostname => "ubuntu",
     :ip => "192.168.33.12",
     :box => "ubuntu/xenial64",
-    :ram => 1024,
+    :ram => 512,
     :cpu => 1
   },
 ]
@@ -36,7 +36,7 @@ Vagrant.configure(2) do |config|
             node.vm.hostname = machine[:hostname]
             node.vm.network "private_network", ip: machine[:ip]
             node.vm.provider "virtualbox" do |vb|
-                vb.customize ["modifyvm", :id, "--memory", machine[:ram]]
+                vb.customize ["modifyvm", :id, "--memory", machine[: ]]
             end
         end
     end
