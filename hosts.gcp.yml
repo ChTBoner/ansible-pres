@@ -1,0 +1,5 @@
+plugin: gcp_compute
+projects:
+  - ansible-pres
+auth_kind: service_account
+service_account_file: ./ansible-pres-auth.json
