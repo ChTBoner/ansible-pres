@@ -1,5 +1,23 @@
 - name: Install mysql
+  become: true
   hosts: web
-  roles:
-    - apache
-    - page-web
+#   roles:
+#     - apache
+#     - page-web
+  tasks:
+    - name: set apache package name for debian
+      set_fact:
+        apache_package_name: apache2
+
+    - name: set apache package name for RedHat
+      set_fact:
+        apache_package_name: httpd
+      when: ansible_os_family == "RedHat"
+    
+    - name: install basic packages for debian family
+      become: true
+      apt:
+          name: '{{ apache_package name }}'
+          state: present
+          update_cache: yes
+          cache_valid_time: 3600
