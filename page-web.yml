@@ -1,23 +1,33 @@
-- name: Install mysql
+- name: Install apache and web page
   become: true
-  hosts: web
-#   roles:
-#     - apache
-#     - page-web
+  hosts: webservers
   tasks:
     - name: set apache package name for debian
       set_fact:
         apache_package_name: apache2
 
-    - name: set apache package name for RedHat
-      set_fact:
-        apache_package_name: httpd
-      when: ansible_os_family == "RedHat"
-    
-    - name: install basic packages for debian family
+    # utilisation du module package, qui sait choisir le bon gestionnaire de paquet, bien que très limité.
+    - name: update apt cache on debian type machines
+      apt: 
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: install apache package
       become: true
-      apt:
-          name: '{{ apache_package name }}'
-          state: present
-          update_cache: yes
-          cache_valid_time: 3600
+      package:
+        name: '{{ apache_package_name }}'
+        state: present
+
+    - name: Check if Apache HTTP Service is Up
+      become: true
+      systemd:
+        name: '{{ apache_package_name }}'
+        state: started
+        enabled: yes
+        daemon_reload: yes
+
+    - name: push template
+      become: true
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
