@@ -1,4 +1,0 @@
-- name: install basic packages for RedHat family
-  yum:
-    name: '{{ apache_package name }}'
-    state: present

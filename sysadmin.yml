@@ -1,9 +1,0 @@
-- name: Install SysAdmin packages
-  hosts: all
-  become: true
-  vars:
-    packages:
-      - htop
-      - mlocate
-  roles:
-    - sysadmin-tools

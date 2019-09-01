@@ -1,5 +1,0 @@
-- import_playbook: sysadmin.yml
-
-- import_playbook: mariadb.yml
-
-- import_playbook: page-web.yml

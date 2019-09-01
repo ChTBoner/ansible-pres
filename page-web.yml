@@ -1,5 +1,0 @@
-- name: Install mysql
-  hosts: web
-  roles:
-    - apache
-    - page-web
