@@ -2,6 +2,7 @@
   template:
     src: redhat.repo.j2
     dest: /etc/yum.repos.d/MariaDB.repo
+
   
 
 - name: install MariaDB packages for RedHat family - INSTALL

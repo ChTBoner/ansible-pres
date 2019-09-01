@@ -36,7 +36,7 @@ Vagrant.configure(2) do |config|
             node.vm.hostname = machine[:hostname]
             node.vm.network "private_network", ip: machine[:ip]
             node.vm.provider "virtualbox" do |vb|
-                vb.customize ["modifyvm", :id, "--memory", machine[: ]]
+                vb.customize ["modifyvm", :id, "--memory", machine[:ram]]
             end
         end
     end
