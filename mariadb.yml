@@ -7,27 +7,27 @@
   tasks:
     - name: install mariadb packages for debian family
       apt:
-          name: 
-          - software-properties-common
-          state: present
-          update_cache: yes
-          cache_valid_time: 3600
+        name: 
+        - software-properties-common
+        state: present
+        update_cache: yes
+        cache_valid_time: 3600
       when: ansible_os_family == "Debian"
 
     - name: add mariadb repo
       apt_repository:
-          repo: 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu {{ ansible_distribution_release }} main'
-          name: mariadb
-          state: present
+        repo: 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu {{ ansible_distribution_release }} main'
+        name: mariadb
+        state: present
       when: ansible_os_family == "Debian"
 
     - name: install mariadb packages for debian family
       apt:
-          name: 
-          - mariadb-server
-          - mariadb-client
-          state: present
-          update_cache: yes
+        name: 
+        - mariadb-server
+        - mariadb-client
+        state: present
+        update_cache: yes
       when: ansible_os_family == "Debian"
 
     - name: install MariaDB packages for RedHat family - REPO
@@ -35,6 +35,7 @@
         src: templates/redhat.repo.j2
         dest: /etc/yum.repos.d/MariaDB.repo
       when: ansible_os_family == "RedHat"
+      notify: restart MariaDB
       
     - name: install MariaDB packages for RedHat family - INSTALL
       yum:
@@ -45,6 +46,7 @@
       when: ansible_os_family == "RedHat"
 
     # va redémarrer MariaDB à chaque fois
+  handlers:  
     - name: restart MariaDB
       systemd:
         name: mariadb

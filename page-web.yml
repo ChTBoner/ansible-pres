@@ -1,11 +1,19 @@
 - name: Install apache and web page
   become: true
   hosts: webservers
-  tasks:
+
+  pre_tasks:
     - name: set apache package name for debian
       set_fact:
         apache_package_name: apache2
+      when: ansible_os_family == "Debian"
+    
+    - name: set apache package name for RH
+      set_fact:
+        apache_package_name: httpd
+      when: ansible_os_family == "RedHat"
 
+  tasks:
     # utilisation du module package, qui sait choisir le bon gestionnaire de paquet, bien que très limité.
     - name: update apt cache on debian type machines
       apt: 
@@ -13,13 +21,11 @@
         cache_valid_time: 3600
 
     - name: install apache package
-      become: true
       package:
         name: '{{ apache_package_name }}'
         state: present
 
     - name: Check if Apache HTTP Service is Up
-      become: true
       systemd:
         name: '{{ apache_package_name }}'
         state: started
