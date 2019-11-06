@@ -1,0 +1,53 @@
+race_names:
+  - humains
+  - elfes
+  - nains
+  - hobbit
+  - maiar
+  - valar
+
+maiar_names:
+  - sauron
+  - gandalf
+  - saruman
+  - radagast
+  - melian
+
+valar_names:
+  - manwe
+  - varda
+  - ulmo
+  - aule
+  - melkor
+
+human_names:
+  - Aragorn
+  - Boromir
+  - Faramir
+  - theoden
+
+elf_names:
+  - Legolas
+  - Elrond
+  - arwen
+
+dwarf_names:
+  - Gimli
+  - Kili
+  - Fili
+  - Thorin
+
+gandalf_names:
+  - "gandalf"
+  - "mithrandir"
+  - "tarkun"
+  - "incanus"
+  - "olorin"
+  - "greyhame"
+
+hobbit_names:
+  - bilbo
+  - frodo
+  - sam
+  - pippin
+  - merry

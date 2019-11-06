@@ -1,0 +1,20 @@
+- name: create users and groups on servers
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+    - name: create users and groups
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ race_names }}"
+      # with_items: "{{ race_names }}"
+
+    - debug:
+        msg: "{{ item[0][0]|lower }}"
+      loop: 
+        - "{{ human_names |  product(['humains'],) | list }}"
+        # - "{{ human_names |  'humains' | list }}"
+        # - { name: '{{ elf_names }}', group: 'elfes' }
+      tags: loop
