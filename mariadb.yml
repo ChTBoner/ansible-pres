@@ -5,15 +5,6 @@
     mariadb_version: 10.2
 
   tasks:
-    - name: install mariadb packages for debian family
-      apt:
-        name: 
-        - software-properties-common
-        state: present
-        update_cache: yes
-        cache_valid_time: 3600
-      when: ansible_os_family == "Debian"
-
     - name: add mariadb repo
       apt_repository:
         repo: 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu {{ ansible_distribution_release }} main'
@@ -24,8 +15,9 @@
     - name: install mariadb packages for debian family
       apt:
         name: 
-        - mariadb-server
-        - mariadb-client
+          - software-properties-common
+          - mariadb-server
+          - mariadb-client
         state: present
         update_cache: yes
       when: ansible_os_family == "Debian"
@@ -45,7 +37,6 @@
         state: present
       when: ansible_os_family == "RedHat"
 
-    # va redémarrer MariaDB à chaque fois
   handlers:  
     - name: restart MariaDB
       systemd:

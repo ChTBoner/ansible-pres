@@ -14,12 +14,12 @@
       when: ansible_os_family == "RedHat"
 
   tasks:
-    # utilisation du module package, qui sait choisir le bon gestionnaire de paquet, bien que très limité.
     - name: update apt cache on debian type machines
       apt: 
         update_cache: yes
         cache_valid_time: 3600
 
+    # utilisation du module package, qui sait choisir le bon gestionnaire de paquet, bien que très limité.
     - name: install apache package
       package:
         name: '{{ apache_package_name }}'
