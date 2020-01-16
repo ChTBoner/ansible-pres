@@ -1,6 +1,6 @@
 - name: Install apache and web page
   become: true
-  hosts: webservers
+  hosts: web
 
   roles:
     - apache

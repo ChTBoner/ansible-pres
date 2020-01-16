@@ -9,7 +9,7 @@ servers=[
   {
     :hostname => "centos",
     :ip => "192.168.33.10",
-    :box => "centos/7",
+    :box => "centos/8",
     :ram => 512,
     :cpu => 1
   },
