@@ -1,6 +1,6 @@
 - name: install basic packages for RedHat family - REPOS
   yum:
-    name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+    name: epel-release
     state: present
 
 - name: install basic packages for RedHat family - INSTALL

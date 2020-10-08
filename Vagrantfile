@@ -23,7 +23,7 @@ servers=[
   {
     :hostname => "ubuntu",
     :ip => "192.168.33.12",
-    :box => "ubuntu/focal64",
+    :box => "ubuntu/xenial64",
     :ram => 512,
     :cpu => 1
   },

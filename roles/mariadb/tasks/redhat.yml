@@ -7,7 +7,6 @@
 - name: install MariaDB packages for RedHat family - INSTALL
   yum:
     name: 
-     - MariaDB-server
-     - MariaDB-client
+     - mariadb-server
     state: present
   notify: restart MariaDB
