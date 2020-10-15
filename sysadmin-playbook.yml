@@ -1,0 +1,29 @@
+- name: Install SysAdmin packages
+  hosts: all
+  become: true
+  vars:
+    packages:
+      - htop
+      - mlocate
+      - vim
+
+  tasks:
+    - name: install basic packages for debian family
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+        cache_valid_time: 3600
+      when: ansible_os_family == "Debian"
+  
+    - block:
+      - name: install basic packages for RedHat family - REPOS
+        yum:
+          name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+          state: present
+
+      - name: install basic packages for RedHat family - INSTALL
+        yum:
+          name: "{{ packages }}"
+          state: present
+      when: ansible_os_family == "RedHat"
